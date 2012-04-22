@@ -1,0 +1,43 @@
+/******** Menu styles **********/
+#horizontal_menu{
+    height:35px;
+	width:700px;
+	margin:0 auto;
+    margin-top: 40px;
+    float: left;
+    margin-left: 100px;
+}
+#horizontal_menu li{
+    list-style: none;
+    height: 35px;
+    float: left;
+    position: relative;
+}
+#horizontal_menu li:hover ul{
+    display: block;
+}
+#horizontal_menu a{
+    color: #000;
+    height: 25px;
+    font-family:"Times New Roman",Georgia,Serif;
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    padding:0px 20px;
+    padding-top:10px;
+}
+#horizontal_menu a:hover{
+    text-decoration: underline;
+}
+#admin_menu{
+    position: absolute;
+    z-index: 1;
+    display: none;
+    width: 234px;
+    left: 20px;
+	top:35px;
+    background-color: #F2F2F2;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    border-radius: 15px 15px 15px 15px;
+  	-moz-border-radius: 15px 15px 15px 15px;            
+}

@@ -1,0 +1,1 @@
+<a href="http://www.greenmap.org/"><img src="<?=base_url()?>images/banner2.jpg" /></a>
