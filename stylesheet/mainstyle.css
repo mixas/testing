@@ -38,6 +38,7 @@ body, html{
     margin: 0px auto;
 }
 #logo_block{
+    margin-left: 30px;
     width: 350px;
     padding-top: 20px;    
     float: left;
@@ -126,20 +127,25 @@ body, html{
 .crud_links{
     
 }
-.tables{
+.tables tbody{
    cursor: pointer;
 }
-.tables tr:hover{
-    background-color: #E5FFE5;
-}
-.tables td{
-    padding: 5px;
-}
-.table_headers td{
+.tables thead td{
+    background-color: #DD2500;
     font-size: 20px;
+    color: #fff;
     padding: 5px;
 }
-.test{    
+
+.tables tbody tr:hover{
+    background-color: #FFAF75 !important;
+    /*border: 1px double red !important;*/
+}
+.tables tbody td{
+    padding: 5px;
+}
+
+.test{
     -webkit-border-radius: 0 0 15px 15px;
     border-radius: 0 0 15px 15px;
   	-moz-border-radius: 0 0 15px 15px;        

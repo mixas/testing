@@ -53,5 +53,12 @@ class Mdl_user extends crud{
         parent::__construct();
     }
     
+    function filtred_by_group($group_id){
+        $this->db->where('group_id', $group_id);
+        $query = $this->db->get('users');
+        $res = $query->result();
+        return $res;
+    }
+    
 }
 ?>

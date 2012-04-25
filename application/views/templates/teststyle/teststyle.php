@@ -9,16 +9,9 @@
 <html>
 <head>
 <script type="text/javascript" src="<?=base_url()?>scripts/jquery.js"></script>
-
-<script type="text/javascript">
-    function decorate(){
-        $('.tables tr:even').css("background-color", "#F2F2F2");
-        $('.tables tr:first').css("background-color", "#FFE5E5");
-        $('.tables tr:odd').css("background-color", "#FFE5E5");
-    }
-</script>
-
+<script type="text/javascript" src="<?=base_url()?>scripts/decorate.js"></script>
 <script src="<?=base_url()?>scripts/dinamic_clock.js"></script>
+
 <title>Online testing | <?  echo isset($header)?$header:'' ?></title>
 <?= link_tag('stylesheet/reset.css'); ?>
 <?= link_tag('stylesheet/mainstyle.css'); ?>

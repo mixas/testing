@@ -18,7 +18,7 @@
                     var myObject = eval('(' + response + ')');
                     var results = myObject["results"];
                     var table = '';
-                    header = '<table width="100%" class="tables" border="1"><tr><td>User name <td>Group <td>Right answers count <td> User raiting (maximum 100 points)';
+                    header = '<table width="100%" class="tables" border="1"><thead><tr><td>User name <td>Group <td>Right answers count <td> User raiting (maximum 100 points)</thead><tbody>';
                     for(var i=0;i<results.length;i++){
                         var id = results[i]["group_id"];
                         table = table + '<tr><td>' + results[i]["name"] + 
@@ -26,7 +26,7 @@
                         '<td>' + results[i]["right_answers"] + 
                         '<td>' + results[i]["user_level"] + '</tr>';
                     }
-                    document.getElementById('testing_table').innerHTML = header + table + '</table>';
+                    document.getElementById('testing_table').innerHTML = header + table + '</tbody></table>';
                     decorate();
                 }
     		}
@@ -55,27 +55,30 @@
 
 <!-- table with results -->
 <table align="center" width="100%" border="1" class="tables" id="testing_table">
-    <tr>
-        <td><h2>User name</h2>
-        <td><h2>Group</h2>
-        <td><h2>Right answers count</h2>
-        <td><h2>User raiting (maximum 100 points)</h2>
-
-<?foreach ($results as $each):?>
-    <tr>
-        <td> <?= $each->name;?>
-        <td><? 
-            $CI->db->where('id', $each->group_id);
-            $request = $CI->db->get('groups');
-            $group = $request->row();
-            echo $group->name;
-            ?>
-        
-        <td> <?= $each->right_answers;?>
-        <td> <?= $each->user_level;?>
-    </tr>
-<?endforeach?>
-
+    <thead>
+        <tr>
+            <td>User name
+            <td>Group
+            <td>Right answers count
+            <td>User raiting (maximum 100 points)
+        </tr>
+    </thead>
+    <tbody>
+        <?foreach ($results as $each):?>
+            <tr>
+                <td> <?= $each->name;?>
+                <td><? 
+                    $CI->db->where('id', $each->group_id);
+                    $request = $CI->db->get('groups');
+                    $group = $request->row();
+                    echo $group->name;
+                    ?>
+                
+                <td> <?= $each->right_answers;?>
+                <td> <?= $each->user_level;?>
+            </tr>
+        <?endforeach?>
+    </tbody>
 </table>
 
 <p class="form_labels"><? if ($results){

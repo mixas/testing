@@ -18,22 +18,27 @@
     <p class="form_labels">Answers:</p>
     
     <table align="center" width="100%" border="1" class="tables">
-        <tr class="table_headers">
-            <td>Id
-            <td width="70%">Text
-            <td>Right
-            <td>Delete
-        <? foreach($answers as $each): ?>
-        <tr onclick="window.location = '<?= base_url() . 'index.php/answers/edit/' . $each['id']; ?>'">
-            <td><?= $each['id'] ?>
-            <td><?= $each['text'] ?>
-            <td><? if ($each['right'] == 1){ echo 'true';} else {echo 'false';} ?>
-            <td><?=anchor('index.php/answers/delete/' . $each['id'],'delete',array('class' => 'crud_links'));?>
-        </tr>
-        <? endforeach ?>
+        <thead>
+            <tr class="table_headers">
+                <td>Id
+                <td width="70%">Text
+                <td>Right
+                <td>Delete
+            </tr>
+        </thead>
+        <tbody>
+            <? foreach($answers as $each): ?>
+            <tr onclick="window.location = '<?= base_url() . 'index.php/answers/edit/' . $each['id']; ?>'">
+                <td><?= $each['id'] ?>
+                <td><?= $each['text'] ?>
+                <td><? if ($each['right'] == 1){ echo 'true';} else {echo 'false';} ?>
+                <td><?=anchor('index.php/answers/delete/' . $each['id'],'delete',array('class' => 'crud_links'));?>
+            </tr>
+            <? endforeach ?>
+        </tbody>
     </table>
-    <?= anchor('index.php/answers/add?question_id=' . $id, 'Add answer', array('class' => 'buttons', 'style' => 'float:left;')) ?>
 <?= form_submit(array('value' => 'Save question', 'class' => 'buttons')) ?>
+<input type="button" class="buttons" value="Add answer" onclick="document.location='<?= base_url() . 'index.php/answers/add?question_id=' . $id ?>'" />
 <?= form_close() ?>
 
 

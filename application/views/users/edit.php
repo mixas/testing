@@ -12,5 +12,6 @@
     <?= form_input(array('name' => 'group_id', 'value' => $group_id, 'class' => 'input_fields' )) ?>
 
 <?= form_submit(array('class' => 'buttons', 'value' => 'Save user', 'class' => 'buttons')); ?>
+<input type="button" class="buttons" value="Back to list" onclick="document.location='<?= base_url() . 'index.php/users' ?>'" />
 <?= form_close() ?>
-<?= anchor('index.php/users/','Users list', array('class' => 'buttons', 'style' => 'float: left')) ?>
+
