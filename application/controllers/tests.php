@@ -10,7 +10,13 @@ class Tests extends CI_Controller{
     }
     
     public function index(){
-        render($this->table . '/index','all ' . $this->table);
+        $user = $this->session->userdata('user_role');
+        if ($user['user_role'] == 3){
+            render($this->table . '/index','all ' . $this->table);
+        }
+        else{
+            render('errors/have_not_permissions', 'permissions error');
+        }
 	}
     
     function show($id){

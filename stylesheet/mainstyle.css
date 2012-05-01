@@ -174,3 +174,11 @@ body, html{
     border: 1px solid #ccc;
     padding: 7px;
 }
+
+.content_text{
+    text-align: justify;
+    font-size: 18px;
+    text-indent: 25px;
+    margin-top: 10px;
+    line-height: 25px;
+}
