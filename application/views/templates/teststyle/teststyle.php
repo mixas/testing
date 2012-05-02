@@ -60,8 +60,13 @@
         <h1>current test id: <?= $this->session->userdata('current_test')?> </h1>
         <h1>right answers: <?= $this->session->userdata('right_answers')?> </h1>
         <h1>user level: <?= $this->session->userdata('user_level')?> </h1>
+        <h1>standart error: <?= $this->session->userdata('standart_error');?></h1>
+        <h1>test information function: <?= $this->session->userdata('test_information_function');?></h1>
         <h1>passed questions array:<pre> <?= print_r($this->session->userdata('passed_questions')); ?> </pre></h1>
         <h1>POST: <? print_r($_POST)?></h1>
         <h1>GET: <? print_r($_GET)?></h1>
         <hr />
     </div>
+    
+    
+    <?print_r($this->session->all_userdata());?>

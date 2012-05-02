@@ -62,7 +62,7 @@ class Mdl_test extends crud{
         return $questions;
     }
     
-    function start_test($test_id){        
+    function start_test($test_id){
         
         if($this->auth_lib->logged_in()){
             
@@ -86,7 +86,7 @@ class Mdl_test extends crud{
     
     //return true if time over
     function is_time_over(){
-        if (30 - ceil(abs($this->left_time()/60))>0){
+        if (30 - ceil(abs($this->left_time() / 60)) > 0){
             return false;
         }
         else{

@@ -17,6 +17,7 @@
                     var response  = req.responseText;
                     var myObject = eval('(' + response + ')');
                     var results = myObject["results"];
+                    document.write(response);
                     var table = '';
                     header = '<table width="100%" class="tables" border="1"><thead><tr><td>User name <td>Group <td>Right answers count <td> User raiting (maximum 100 points)</thead><tbody>';
                     for(var i=0;i<results.length;i++){

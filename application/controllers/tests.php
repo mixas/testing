@@ -72,14 +72,21 @@ class Tests extends CI_Controller{
     
     
     
+    
+    
     //testing
     function go_first($id){
-        //get child model and download it
-        $general_model = $this->get_child_model($id);
-        $this->load->model($general_model);
-        
-        $this->$general_model->start_test($id);
-        redirect('/index.php/tests/go');
+        if ($this->auth_lib->logged_in()){
+            //get child model and download it
+            $general_model = $this->get_child_model($id);
+            $this->load->model($general_model);
+            
+            $this->$general_model->start_test($id);
+            redirect('/index.php/tests/go');
+        }
+        else{
+            render('errors/have_not_permissions', 'Login please');
+        }
     }
     
     function go(){
@@ -90,7 +97,8 @@ class Tests extends CI_Controller{
         
         //check user answer
         $user_answer = $this->input->post('answer');
-        if (isset($user_answer)){
+        if ($user_answer){
+            
             $this->$general_model->check_answer($user_answer);
         }
         
@@ -125,10 +133,6 @@ class Tests extends CI_Controller{
         }
     }
     
-    function testfunc(){
-        render('tests/test', 'graph');
-    }
-    
     function show_tests_tesults(){
         $user = $this->session->userdata('user_role');
         if ($user['user_role'] == 3){
@@ -149,7 +153,6 @@ class Tests extends CI_Controller{
         else{
             render('errors/have_not_permissions', 'permissions error');
         }
-        
     }
     
     function get_filtred_results($test_id){
